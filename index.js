@@ -211,37 +211,6 @@ function generate(id) {
   ];
 
 
-  const spheres = [
-    { 
-      p: 'M37.4756 122.484C113.012 125.721 258.265 200.683 299.725 182.283C341.185 163.883 236.541 80.6375 126.89 9.52896C55.9581 -36.4707 -57.9332 118.395 37.4756 122.484Z',
-      x: 160, 
-      y: 170
-    },
-    { 
-      p: 'M273 120C197.391 123.167 51.9999 196.5 10.5 178.5C-31 160.5 73.7447 79.0632 183.5 9.50004C254.5 -35.5 368.5 116 273 120Z',
-      x: 160, 
-      y: 213
-    },
-    { 
-      p: 'M132 263C204.349 263 263 204.349 263 132C263 59.6507 204.349 1 132 1C59.6507 1 1 59.6507 1 132C1 204.349 59.6507 263 132 263ZM132 264C204.902 264 264 204.902 264 132C264 59.0984 204.902 0 132 0C59.0984 0 0 59.0984 0 132C0 204.902 59.0984 264 132 264Z',
-      x: 170, 
-      y: 100 
-    },
-  ];
-
-  const spheresAmount = Number(`0x${idHash}`) % 3
-
-  let spheresString = ''
-
-  for (let i = 0; i <= spheresAmount; i++) {
-    spheresString += `<svg x="${spheres[i].x}" y="${
-      spheres[i].y
-    }" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <animateMotion dur="40s" repeatCount="indefinite" path="${spheres[i].p}"/>
-    <circle cx="9" cy="9" r="9" fill="#D9D9D9"/>
-    </svg>`
-  }
-
   let sideShapes = '';
 
   for (let i = 0; i < 4; i++) {
@@ -319,8 +288,6 @@ function generate(id) {
             fill="#747474" font-size="14px">${id}</textPath>
 </text>
 </svg>
-
-  ${spheresString}
 
 <svg x="${msc[mainShape].x}px" y="${msc[mainShape].y}px" fill="#${mainColor}" filter="url(#shadow)">
   <animate attributeName="y" dur="5s" repeatCount="indefinite" values="${
